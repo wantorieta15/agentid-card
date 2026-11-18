@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentID Card — On-chain profile directory for Agent ID holders</title>
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 720px; margin: 0 auto; padding: 24px 16px; background: #0b0e11; color: #eaecef; }
+  h1 { color: #f0b90b; font-size: 28px; margin-bottom: 4px; }
+  h2 { font-size: 18px; margin-top: 32px; border-bottom: 1px solid #2b3139; padding-bottom: 6px; }
+  p, li { color: #b7bdc6; line-height: 1.5; }
+  a { color: #f0b90b; }
+  button { background: #f0b90b; color: #0b0e11; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; margin: 4px 4px 4px 0; }
+  button:disabled { opacity: 0.4; cursor: default; }
+  input, textarea { width: 100%; box-sizing: border-box; background: #1e2329; color: #eaecef; border: 1px solid #2b3139; border-radius: 8px; padding: 10px; margin: 6px 0; font-size: 15px; }
+  .card { background: #1e2329; border: 1px solid #2b3139; border-radius: 12px; padding: 14px; margin: 10px 0; }
+  .card b { color: #f0b90b; }
+  .muted { font-size: 13px; color: #848e9c; }
+  #status { margin: 12px 0; font-weight: 600; }
+</style>
+</head>
+<body>
+<h1>🪪 AgentID Card</h1>
+<p>On-chain profile directory for <b>Binance Agent ID</b> holders (name.ai). Only a wallet that holds an Agent ID can create a profile — the handle is read straight from the Agent ID registry on-chain, so nobody can claim a name they don't own.</p>
+<p class="muted">No funds move except gas. Profiles are public on-chain. Contract: <span id="contractAddr">not deployed yet</span> (BNB Chain, chain 56). <a href="https://www.binance.com/en/support/announcement/detail/95f5dbe0ea674a48a739b59e046648bf" target="_blank" rel="noopener">Agent ID Hackathon</a></p>
+
+<button id="connectBtn">Connect wallet</button>
+<div id="status">Not connected.</div>
+
+<h2>Your profile</h2>
+<div id="mine">Connect your wallet to see your profile.</div>
+<label>Bio (max 280 chars)</label>
+<textarea id="bio" rows="3" maxlength="280" placeholder="What does your agent do?"></textarea>
+<label>Tags, comma-separated (max 140 chars)</label>
+<input id="tags" maxlength="140" placeholder="defi, nft, agent">
+<label>Link (max 140 chars)</label>
+<input id="link" maxlength="140" placeholder="x.com/yourname">
+<br>
+<button id="saveBtn" disabled>Save my profile (gas only)</button>
+<button id="removeBtn" disabled>Remove my profile</button>
+
+<h2>Directory</h2>
+<button id="refreshBtn">Refresh directory</button>
+<div id="directory">Loading…</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
