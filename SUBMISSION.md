@@ -30,7 +30,8 @@ Deploy route: baw TIDAK bisa deploy langsung (--to wajib, terverifikasi) — dep
 
 ## 2. Verify source on BscScan
 
-- Open the contract page on BscScan → "Verify and Publish".
+- ✅ **Source TERVERIFIKASI via Sourcify 19 Nov 00:09 WITA — Exact Match (creation + runtime), Match ID 59476945, job https://verify.sourcify.dev/jobs/c08e8d56-2d95-45df-9f92-b3759086d5a5** (terkonfirmasi juga lewat API Sourcify: match exact_match). Verifikasi Sourcify tampil juga di halaman kontrak BscScan.
+- BscScan form "Verify and Publish" LANGSUNG masih terblokir Cloudflare (dicoba 19 Nov 00:00, 2× + ganti browser, tetap muter) — coba lagi nanti, atau mas Wan lewati pemeriksaan di browser langsung kalau mau.
 - Compiler: **Solidity 0.8.24**, License **MIT**, Optimization: **No**.
 - Paste the ENTIRE `contracts/AgentDirectory.sol` (single file, no imports
   — no flattening needed).
